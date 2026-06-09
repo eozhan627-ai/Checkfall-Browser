@@ -1,0 +1,373 @@
+:root {
+    --gold: #d4af37;
+    --blue: #4da3ff;
+
+    --bg: #07070a;
+
+    --glass: rgba(255, 255, 255, 0.06);
+    --glass-strong: rgba(255, 255, 255, 0.1);
+    --border: rgba(255, 255, 255, 0.12);
+
+    --text: #ffffff;
+    --muted: #b5b5b5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: var(--text);
+    background:
+        
+        url("./assets/background.png");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* ================= NAV ================= */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 24px;
+
+    backdrop-filter: blur(14px);
+    background: rgba(0, 0, 0, 0.55);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+}
+
+.nav-logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--gold);
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 26px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 14px;
+    opacity: 0.8;
+    transition: 0.2s;
+    padding-bottom: 4px;
+}
+
+.nav-links a:hover {
+    opacity: 1;
+}
+
+.nav-links a.active {
+    color: var(--blue);
+    border-bottom: 2px solid var(--blue);
+    opacity: 1;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    text-align: center;
+    padding: 120px 20px 80px;
+}
+
+.hero h1 {
+    font-size: 44px;
+    margin-bottom: 18px;
+}
+
+.hero p {
+    color: var(--muted);
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.cta-btn {
+    margin-top: 28px;
+    padding: 14px 28px;
+
+    border: none;
+    border-radius: 14px;
+
+    background: var(--gold);
+    font-weight: 700;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.cta-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* ================= SECTIONS ================= */
+
+.section {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.section h2 {
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+/* ================= PROGRESS ================= */
+
+.progress-card {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 20px;
+
+    backdrop-filter: blur(12px);
+}
+
+.progress-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.progress-fill {
+    width: 65%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--blue), var(--gold));
+}
+
+/* ================= CARDS ================= */
+
+.timeline-card,
+.bug-card,
+.vote-grid button,
+.roadmap-item {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 16px;
+    margin-bottom: 12px;
+
+    backdrop-filter: blur(12px);
+
+    transition: 0.2s;
+}
+
+.timeline-card:hover,
+.bug-card:hover,
+.vote-grid button:hover,
+.roadmap-item:hover {
+    transform: translateY(-4px);
+    background: var(--glass-strong);
+}
+
+/* ================= BUG GRID ================= */
+
+.bug-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+}
+
+/* ================= VOTE ================= */
+
+.vote-info {
+    text-align: center;
+    margin-bottom: 18px;
+    color: var(--gold);
+    font-size: 13px;
+}
+
+.vote-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+}
+
+.vote-grid button {
+    cursor: pointer;
+    color: white;
+    font-size: 15px;
+}
+
+.vote-grid span {
+    display: block;
+    margin-top: 10px;
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.community-text {
+    text-align: center;
+    margin-top: 18px;
+    color: var(--muted);
+}
+
+/* ================= CONTACT ================= */
+
+#contact a {
+    color: var(--gold);
+    text-decoration: none;
+}
+
+a {
+    color: var(--gold);
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+/* IMPRESSUM */
+
+#impressum {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 30px;
+
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+
+    backdrop-filter: blur(12px);
+}
+
+#impressum h2 {
+    color: var(--gold);
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+#impressum p {
+    color: #ccc;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* Optional: Link im Footer */
+footer a {
+    color: var(--gold);
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+a:hover {
+    color: #fff;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    text-align: center;
+    padding: 40px;
+    color: var(--muted);
+}
+
+/* ================= POPUP ================= */
+
+.popup {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.popup-box {
+    background: rgba(15, 15, 15, 0.95);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    padding: 20px;
+    min-width: 280px;
+
+    text-align: center;
+}
+
+.popup-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.popup-box button {
+    padding: 10px 14px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#confirmVoteBtn {
+    background: var(--gold);
+}
+
+.popup-box button:first-child {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+}
