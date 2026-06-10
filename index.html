@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -17,7 +17,7 @@
     <!-- NAVIGATION -->
     <nav>
         <div class="nav-left">
-            <img src="assets/knight_white.png" alt="Checkfall Logo" class="logo-img">
+            <img src="assets/android-icon-foreground.png" alt="Checkfall Logo" class="logo-img">
             <div class="nav-logo">CHECKFALL</div>
         </div>
 
@@ -27,6 +27,7 @@
             <li><a href="#development">Development</a></li>
             <li><a href="#bugs">Bugs</a></li>
             <li><a href="#roadmap">Roadmap</a></li>
+            <li><a href="#vip">VIP</a></li>
             <li><a href="#community">Community</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -42,9 +43,10 @@
             Checkfall is evolving into a full chess ecosystem with AI, online play and competitive systems.
         </p>
 
-        <button class="cta-btn" onclick="document.getElementById('progress').scrollIntoView({behavior:'smooth'})">
-            Join the Journey
-        </button>
+        <!-- 🔥 MAIN CTA -->
+        <a class="cta-btn" href="https://tinyurl.com/checkfalltest" target="_blank">
+            📱 Download Android Beta
+        </a>
     </header>
 
     <!-- PROGRESS -->
@@ -63,6 +65,12 @@
 
             <p>
                 Currently working on Promotion System, Bug Fixes, Daily Puzzle improvements and UI polishing.
+            </p>
+
+            <p>
+                <a href="https://tinyurl.com/checkfalltest" target="_blank">
+                    → Download APK Test Version
+                </a>
             </p>
         </div>
     </section>
@@ -105,7 +113,7 @@
 
             <div class="bug-card progress">
                 <h3>🟡 In Progress</h3>
-                <p>Local UI improvements for promotion.</p>
+                <p>UI improvements for promotion system.</p>
             </div>
 
             <div class="bug-card fixed">
@@ -120,45 +128,59 @@
     <section id="roadmap" class="section">
         <h2>🛣 Roadmap</h2>
 
-        <div class="roadmap-item">🚧 Promotion System Fixes</div>
-        <div class="roadmap-item">🚧 Daily Puzzle Improvements</div>
-        <div class="roadmap-item">🚧 Clan System</div>
-        <div class="roadmap-item">🚧 Friends System</div>
-        <div class="roadmap-item">🚧 Ranked Ladder</div>
+        <!-- 🚧 PLANNED -->
+        <h3 style="color:#4da3ff;">🚧 Planned</h3>
+
+        <div class="roadmap-item">Clan System</div>
+        <div class="roadmap-item">Friends System</div>
+        <div class="roadmap-item">Ranked Ladder</div>
+        <div class="roadmap-item">Daily Puzzle Improvements</div>
+        <div class="roadmap-item">Promotion System Fixes</div>
+
+        <!-- ☑ DONE -->
+        <h3 style="color:#00c853; margin-top:30px;">☑ Completed</h3>
+
+        <div class="roadmap-item">Core Multiplayer System</div>
+        <div class="roadmap-item">Basic Bot Integration</div>
+        <div class="roadmap-item">Initial MVP Framework</div>
+
+        <!-- 📅 MILESTONE -->
+        <h3 style="color:#d4af37; margin-top:30px;">📅 Milestones</h3>
 
         <div class="roadmap-item">
-            📅 05.02.2027 – business registration
+            05.02.2027 – Business Registration
         </div>
 
         <div class="roadmap-item">
-            🚀 05.02.2027 – MVP Release
+            05.02.2027 – MVP Release Target
         </div>
+    </section>
 
-        <section id="vip" class="section">
-            <h2>💎 VIP Memberships</h2>
+    <!-- VIP -->
+    <section id="vip" class="section">
+        <h2>💎 VIP Memberships</h2>
 
-            <div class="bug-grid">
+        <div class="bug-grid">
 
-                <div class="bug-card">
-                    <h3>🥈 Silber</h3>
-                    <p>5,99€ / Monat • 49,99€ / Jahr</p>
-                    <p>• Basic KI<br>• 3 Lektionen / Tag<br>• Unbegrenzte Puzzles</p>
-                </div>
-
-                <div class="bug-card">
-                    <h3>🥇 Gold</h3>
-                    <p>8,99€ / Monat • 79,99€ / Jahr</p>
-                    <p>• Unbegrenzte KI Analysen<br>• Unbegrenzte Lektionen<br>• Unbegrenzte Puzzles</p>
-                </div>
-
-                <div class="bug-card">
-                    <h3>💎 Diamant</h3>
-                    <p>12,99€ / Monat • 129,99€ / Jahr</p>
-                    <p>• Erweiterte KI Analyse<br>• Langzeitstatistiken<br>• Exklusive Items & Badge</p>
-                </div>
-
+            <div class="bug-card">
+                <h3>🥈 Silver</h3>
+                <p>5,99€ / month • 49,99€ / year</p>
+                <p>Basic AI • 3 Lessons/day • Unlimited Puzzles</p>
             </div>
-        </section>
+
+            <div class="bug-card">
+                <h3>🥇 Gold</h3>
+                <p>8,99€ / month • 79,99€ / year</p>
+                <p>Unlimited AI • Unlimited Lessons • Unlimited Puzzles</p>
+            </div>
+
+            <div class="bug-card">
+                <h3>💎 Diamant</h3>
+                <p>12,99€ / month • 129,99€ / year</p>
+                <p>Advanced AI • Stats • Exclusive Items & Badge</p>
+            </div>
+
+        </div>
     </section>
 
     <!-- COMMUNITY -->
@@ -171,106 +193,95 @@
 
         <div class="vote-grid">
 
-            <button onclick="vote('friends')">
-                Friends System
-                <span id="friends">0</span>
-            </button>
-
-            <button onclick="vote('clans')">
-                Clan Wars
-                <span id="clans">0</span>
-            </button>
-
-            <button onclick="vote('ranked')">
-                Ranked Ladder
-                <span id="ranked">0</span>
-            </button>
-
-            <button onclick="vote('replays')">
-                Replays
-                <span id="replays">0</span>
-            </button>
+            <button onclick="vote('friends')">Friends <span id="friends">0</span></button>
+            <button onclick="vote('clans')">Clans <span id="clans">0</span></button>
+            <button onclick="vote('ranked')">Ranked <span id="ranked">0</span></button>
+            <button onclick="vote('replays')">Replays <span id="replays">0</span></button>
 
         </div>
-
-        <p class="community-text">
-            Help shape the future of Checkfall.
-        </p>
-
     </section>
+
+    <!-- SOCIALS -->
     <section class="section" id="socials">
         <h2>🌐 Community</h2>
 
         <div class="bug-grid">
 
             <a class="bug-card" href="https://discord.gg/MaJGtqqAk" target="_blank">
-                <h3>Discord Server</h3>
-                <p>Join the community</p>
+                <h3>Discord</h3>
+                <p>Join testers & devs →</p>
             </a>
 
             <a class="bug-card" href="https://instagram.com/Checkfall" target="_blank">
                 <h3>Instagram</h3>
-                <p>Development updates</p>
+                <p>Updates →</p>
             </a>
 
             <a class="bug-card" href="https://github.com/eozhan627-ai/Checkfall.git" target="_blank">
                 <h3>GitHub</h3>
-                <p>Source / dev progress</p>
+                <p>Source code →</p>
             </a>
 
         </div>
     </section>
+
     <!-- CONTACT -->
     <section id="contact" class="section">
         <h2>📬 Contact</h2>
 
-        <p>Business inquiries:</p>
-
         <a href="mailto:checkfall744@gmail.com">
             checkfall744@gmail.com
         </a>
-        </br>
+        <br>
         <a href="tel:+4915758186141">
             +49 1575 8186 141
         </a>
     </section>
-    <section id="impressum">
+
+    <!-- IMPRESSUM -->
+    <section id="impressum" class="section">
         <h2>Legal Notice</h2>
 
         <p>
             Information according to § 5 TMG<br><br>
-
-            Operator of this website:<br>
-            Enes Özhan<br><br>
-
-            Contact:<br>
-            Email: checkfall744@gmail.com<br><br>
-
-            Responsible for content according to § 55 Abs. 2 RStV:<br>
-            Enes Özhan
+            Operator: Enes Özhan<br>
+            Email: checkfall744@gmail.com<br>
+            Responsible for content: Enes Özhan
         </p>
     </section>
 
     <!-- FOOTER -->
-    <footer>
-        ©️ 2027 Checkfall • Build in Public
+    <footer class="footer">
+
+        <div class="footer-links">
+            <a href="https://tinyurl.com/checkfalltest" target="_blank">APK Test</a>
+            <a href="mailto:checkfall744@gmail.com">Support</a>
+            <a href="https://discord.gg/MaJGtqqAk">Community</a>
+        </div>
+
+        <p class="footer-copy">
+            © 2026 Checkfall • Build in Public
+        </p>
+
     </footer>
 
-    <!-- SCRIPT -->
     <script src="script.js"></script>
-
-    <!-- POPUP -->
     <div id="popup" class="popup hidden">
         <div class="popup-box">
 
             <h3 id="popup-title"></h3>
+
             <p id="popup-text"></p>
 
             <div class="popup-buttons">
 
-                <button onclick="closePopup()">Cancel</button>
+                <button onclick="closePopup()">
+                    Cancel
+                </button>
 
-                <button id="confirmVoteBtn">Confirm</button>
+                <button id="confirmVoteBtn">
+                    Confirm
+                </button>
 
             </div>
 

@@ -26,7 +26,7 @@ html {
 body {
     color: var(--text);
     background:
-        
+
         url("./assets/background.png");
 
     background-size: cover;
@@ -48,7 +48,7 @@ nav {
     padding: 18px 24px;
 
     backdrop-filter: blur(14px);
-    background: rgba(0, 0, 0, 0.55);
+    background: rgba(20, 20, 20, 0.8);
     border-bottom: 1px solid var(--border);
 }
 
@@ -59,12 +59,83 @@ nav {
 }
 
 .logo-img {
-    width: 44px;
-    height: 44px;
+    width: 70px;
+    height: 70px;
     object-fit: contain;
+
+
+}
+
+.logo-img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+
+    animation: glow 2s infinite ease-in-out;
+}
+
+@keyframes glow {
+    0% {
+        filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.3));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 14px rgba(77, 163, 255, 0.8));
+    }
+
+    100% {
+        filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.3));
+    }
+}
+
+.footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    margin-top: 60px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+    color: var(--blue);
+}
+
+.footer-donate {
+    margin-bottom: 15px;
+}
+
+.donate-btn {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 10px 16px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, var(--gold), var(--blue));
+    color: black;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.footer-copy {
+    font-size: 12px;
+    opacity: 0.6;
 }
 
 .nav-logo {
+
     font-size: 24px;
     font-weight: 800;
     color: var(--gold);
@@ -75,6 +146,33 @@ nav {
     display: flex;
     gap: 26px;
     list-style: none;
+}
+
+.cta-btn {
+    display: inline-block;
+    margin-top: 28px;
+    padding: 14px 28px;
+
+    border: none;
+    border-radius: 14px;
+
+    background: var(--gold);
+    color: black;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.cta-btn:hover {
+    transform: translateY(-2px);
+}
+
+@media (hover: none) {
+    .cta-btn:hover {
+        transform: none;
+    }
 }
 
 .nav-links a {

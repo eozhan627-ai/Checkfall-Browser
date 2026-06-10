@@ -1,3 +1,5 @@
+const API_URL = "https://checkfall-browser-server.onrender.com";
+
 function toggleMenu() {
     const nav = document.getElementById("navLinks");
     if (nav) nav.classList.toggle("active");
@@ -35,18 +37,20 @@ window.addEventListener("load", () => {
 });
 
 /* ================= VOTING SYSTEM ================= */
+fetch(`${API_URL}/votes`)
+    .then(res => res.json())
+    .then(data => {
+        Object.keys(data).forEach(key => {
+            const el = document.getElementById(key);
 
-const votes = {
-    friends: Number(localStorage.getItem("friendsVotes")) || 0,
-    clans: Number(localStorage.getItem("clansVotes")) || 0,
-    ranked: Number(localStorage.getItem("rankedVotes")) || 0,
-    replays: Number(localStorage.getItem("replaysVotes")) || 0,
-};
-
-Object.keys(votes).forEach((key) => {
-    const el = document.getElementById(key);
-    if (el) el.textContent = votes[key];
-});
+            if (el) {
+                el.textContent = data[key];
+            }
+        });
+    })
+    .catch(err => {
+        console.error("Could not load votes:", err);
+    });
 
 let pendingVote = null;
 
@@ -58,22 +62,28 @@ function showPopup(title, text) {
 
     document.getElementById("popup").classList.remove("hidden");
 }
-
 function closePopup() {
-    document.getElementById("popup").classList.add("hidden");
+    document.getElementById("popup")
+        .classList.add("hidden");
+
+    document.getElementById("confirmVoteBtn")
+        .style.display = "block";
+
     pendingVote = null;
 }
 
 /* ================= VOTE FLOW ================= */
-
 function vote(option) {
-    const alreadyVoted = localStorage.getItem("checkfallVote");
+    const alreadyVoted = localStorage.getItem("checkfallVote") === "true";
 
     if (alreadyVoted) {
         showPopup(
             "Vote already used",
-            "You can only vote once. This action is final."
+            "You can only vote once."
         );
+
+        document.getElementById("confirmVoteBtn").style.display = "none";
+
         return;
     }
 
@@ -81,28 +91,49 @@ function vote(option) {
 
     showPopup(
         "Confirm vote",
-        `Do you want to vote for "${option}"? This cannot be changed.`
+        `Vote for "${option}"? This cannot be changed.`
     );
 
-    const btn = document.getElementById("confirmVoteBtn");
-
-    btn.onclick = confirmVote;
+    document.getElementById("confirmVoteBtn").onclick = confirmVote;
 }
-
 function confirmVote() {
     if (!pendingVote) return;
 
-    votes[pendingVote]++;
+    const option = pendingVote;
 
-    localStorage.setItem(`${pendingVote}Votes`, votes[pendingVote]);
+    const el = document.getElementById(option);
+
+    // optimistic update
+    if (el) {
+        el.textContent = Number(el.textContent) + 1;
+    }
+
     localStorage.setItem("checkfallVote", "true");
 
-    const el = document.getElementById(pendingVote);
-    if (el) el.textContent = votes[pendingVote];
-
     closePopup();
-}
+    pendingVote = null;
 
+    fetch(`${API_URL}/vote`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ option })
+    })
+        .then(res => res.json())
+        .then(data => {
+            Object.keys(data).forEach(key => {
+                const element = document.getElementById(key);
+
+                if (element) {
+                    element.textContent = data[key];
+                }
+            });
+        })
+        .catch(err => {
+            console.error("Vote sync failed:", err);
+        });
+}
 /* ================= OPTIONAL: SMOOTH SCROLL SAFETY ================= */
 
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
